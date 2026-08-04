@@ -1,10 +1,10 @@
 # Deploying Hypotenuse-Analytics/ComfyUI with Dokploy & Cloudflare Zero Trust
 
-This guide explains how to deploy **Hypotenuse-Analytics/ComfyUI** on an AWS EC2 `g5.2xlarge` instance using **Dokploy** and securing public access via **Cloudflare Zero Trust / Access**.
+This guide explains how to deploy **Hypotenuse-Analytics/ComfyUI** on an AWS EC2 `g5.xlarge` instance (NVIDIA A10G GPU with 24GB VRAM, 4 vCPUs, 16GB RAM) using **Dokploy** and securing public access via **Cloudflare Zero Trust / Access**.
 
 ---
 
-## 1. AWS EC2 `g5.2xlarge` Instance Setup (GPU Prerequisites)
+## 1. AWS EC2 `g5.xlarge` Instance Setup (GPU Prerequisites)
 
 Ensure your target VM (where Dokploy runs or your application server VM) has the **NVIDIA Container Toolkit** installed so Docker containers can access the A10G GPU (24GB VRAM).
 
