@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  comfyui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: comfyui
+    restart: unless-stopped
+    ports:
+      - "8188:8188"
+    environment:
+      - CLI_ARGS=--listen 0.0.0.0 --port 8188 --enable-cors-header
+    volumes:
+      # Persistent storage volumes for models, custom nodes, inputs, outputs, and user data
+      - comfyui_models:/app/models
+      - comfyui_custom_nodes:/app/custom_nodes
+      - comfyui_output:/app/output
+      - comfyui_input:/app/input
+      - comfyui_user:/app/user
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  comfyui_models:
+    name: comfyui_models
+  comfyui_custom_nodes:
+    name: comfyui_custom_nodes
+  comfyui_output:
+    name: comfyui_output
+  comfyui_input:
+    name: comfyui_input
+  comfyui_user:
+    name: comfyui_user
