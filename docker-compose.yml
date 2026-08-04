@@ -12,8 +12,8 @@ services:
     environment:
       - CLI_ARGS=--listen 0.0.0.0 --port 8188 --enable-cors-header
     volumes:
-      # Persistent storage volumes for models, custom nodes, inputs, outputs, and user data
-      - comfyui_models:/app/models
+      # Persistent storage volumes: host /mnt/models (232GB disk), plus named volumes for remaining data
+      - /mnt/models:/app/models
       - comfyui_custom_nodes:/app/custom_nodes
       - comfyui_output:/app/output
       - comfyui_input:/app/input
@@ -27,8 +27,6 @@ services:
               capabilities: [gpu]
 
 volumes:
-  comfyui_models:
-    name: comfyui_models
   comfyui_custom_nodes:
     name: comfyui_custom_nodes
   comfyui_output:
