@@ -41,6 +41,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source repository
 COPY . .
 
+# Comfy CLI (permanent, installed into the container's Python env)
+RUN pip install --no-cache-dir comfy-cli && comfy set-default /app
+
 # Expose default ComfyUI port
 EXPOSE 8188
 
