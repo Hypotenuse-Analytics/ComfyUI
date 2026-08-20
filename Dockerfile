@@ -51,4 +51,4 @@ RUN pip install --no-cache-dir "comfyui-manager>=4.2.1"
 EXPOSE 8188
 
 # Entrypoint to start ComfyUI listening on all interfaces
-CMD ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--enable-cors-header", "--enable-manager", "--preview-method", "auto", "--highvram", "--use-pytorch-cross-attention"]
+CMD ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188", "--enable-cors-header", "--enable-manager", "--preview-method", "auto", "--use-pytorch-cross-attention"]

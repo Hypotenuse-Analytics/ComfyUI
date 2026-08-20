@@ -10,7 +10,7 @@ services:
     ports:
       - "8188:8188"
     environment:
-      - CLI_ARGS=--listen 0.0.0.0 --port 8188 --enable-cors-header --enable-manager --preview-method auto --highvram --use-pytorch-cross-attention
+      - CLI_ARGS=--listen 0.0.0.0 --port 8188 --enable-cors-header --enable-manager --preview-method auto --use-pytorch-cross-attention
     volumes:
       # Persistent storage volumes: host /mnt/models (232GB disk), plus named volumes for remaining data
       - /mnt/models:/app/models
