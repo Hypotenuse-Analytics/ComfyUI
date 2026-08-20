@@ -44,6 +44,9 @@ COPY . .
 # Comfy CLI (permanent, installed into the container's Python env)
 RUN pip install --no-cache-dir comfy-cli && comfy set-default /app
 
+# ComfyUI-Manager v4 (required by current ComfyUI core)
+RUN pip install --no-cache-dir "comfyui-manager>=4.2.1"
+
 # Expose default ComfyUI port
 EXPOSE 8188
 
